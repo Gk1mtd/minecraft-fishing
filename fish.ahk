@@ -10,7 +10,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ^b::
 ToolTip , "start", 200, 200
 numberOfCatches := 0
-while (numberOfCatches>120) {
+while (numberOfCatches<120) {
     PixelSearch, Px, Py, A_ScreenWidth/2-50, A_ScreenHeight/2-50, A_ScreenWidth/2+50, A_ScreenHeight/2+50, 0x000000, 5, Fast
     if ErrorLevel {
         ; That color was not found in the specified region.
@@ -18,7 +18,7 @@ while (numberOfCatches>120) {
         MouseClick, right
         sleep 100
         ToolTip , %numberOfCatches%, 200, 200
-        numberOfCatches--
+        numberOfCatches++
         sleep 4000
     }
     else {
